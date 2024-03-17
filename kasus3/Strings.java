@@ -16,9 +16,11 @@ public class Strings {
         size = sc.nextInt();
         strList = new String[size];
 
+        sc.nextLine(); // buang string lebih
         System.out.println("\nEnter the Strings...");
-        for (int i = 0; i < size; i++)
+        for (int i = 0; i < size; i++) {
             strList[i] = sc.nextLine();
+        }
 
         // Sorting.selectionSort(strList);
         Sorting.insertionSort(strList);

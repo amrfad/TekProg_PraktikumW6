@@ -34,12 +34,20 @@ public class Salesperson implements Comparable {
     // (last, then first) breaking a tie.
     // -----------------------------------------
     public int compareTo(Object other) {
+        int result;
+
         int otherSales = ((Salesperson) other).getTotalSales();
 
         if (totalSales != otherSales) {
-            return (totalSales - otherSales);
+            result = (totalSales - otherSales);
+        } else {
+            if (firstName.equals(((Salesperson) other).getFirstName())) {
+                result = (lastName.compareTo(((Salesperson) other).getLastName()));
+            } else {
+                result = (firstName.compareTo(((Salesperson) other).getFirstName()));
+            }
         }
-        return (lastName.compareTo(((Salesperson) other).getLastName()));
+        return result;
     }
 
     // -----------------------------------------
